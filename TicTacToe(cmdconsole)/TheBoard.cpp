@@ -1,3 +1,8 @@
+// Copyright (c) 2025 Matthew Pym
+// Licensed under the Apache License, Version 2.0
+// http://www.apache.org/licenses/LICENSE-2.0
+
+
 #include "THEBOARD_H.h"	// Include the header file for the printBoard function
 
 #include <iostream>		// For cout, cin, getline
