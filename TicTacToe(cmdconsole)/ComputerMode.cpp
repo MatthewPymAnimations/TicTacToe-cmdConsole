@@ -193,7 +193,7 @@ GameModeEnum ComputerMode() {
 			}
 		}
 
-		if (responsePlayer1Symbol.find('x') != string::npos || responsePlayer1Symbol.find("knot") != string::npos) {			// If the user input is 1 or computer, `find() != string::npos` checks if the substring exists anywhere in the string; without it, you’d only detect exact matches or need manual searching.
+		if (responsePlayer1Symbol.find('x') != string::npos || responsePlayer1Symbol.find("knot") != string::npos) {			// If the user input is 1 or computer, `find() != string::npos` checks if the substring exists anywhere in the string; without it, youâ€™d only detect exact matches or need manual searching.
 			stats.setPlayer1Symbol(1);																							// Set Player 1's symbol to X
 			cout << "Player 1 chose X so the computer is O" << endl;
 			cout << endl << endl << endl;
@@ -236,7 +236,7 @@ GameModeEnum ComputerMode() {
 			}
 		}
 
-		if (responsePlayer1Symbol.find('e') != string::npos || responsePlayer1Symbol.find("easy") != string::npos) {			// If the user input is 1 or computer, `find() != string::npos` checks if the substring exists anywhere in the string; without it, you’d only detect exact matches or need manual searching.
+		if (responsePlayer1Symbol.find('e') != string::npos || responsePlayer1Symbol.find("easy") != string::npos) {			// If the user input is 1 or computer, `find() != string::npos` checks if the substring exists anywhere in the string; without it, youâ€™d only detect exact matches or need manual searching.
 			stats.setComputerDifficulty(0);																						// Set the computer's difficulty to easy																							
 			cout << "Player 1 chose Easy mode." << endl;
 			cout << endl << endl << endl;

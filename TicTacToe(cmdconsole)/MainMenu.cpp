@@ -48,7 +48,7 @@ GameModeEnum MainMenuFunction() {
 			}
 		}
 
-		if (response.find('1') != string::npos || response.find("friend") != string::npos) {				// If the user input is 1 or friend, `find() != string::npos` checks if the substring exists anywhere in the string; without it, you’d only detect exact matches or need manual searching.
+		if (response.find('1') != string::npos || response.find("friend") != string::npos) {				// If the user input is 1 or friend, `find() != string::npos` checks if the substring exists anywhere in the string; without it, youâ€™d only detect exact matches or need manual searching.
 			cout << endl << endl << endl;									// Print message
 			return GameModeEnum::Friend;																	// Exit the loop and proceed to the game logic
 		}
