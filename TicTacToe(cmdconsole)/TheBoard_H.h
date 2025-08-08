@@ -1,3 +1,8 @@
+// Copyright (c) 2025 Matthew Pym
+// Licensed under the Apache License, Version 2.0
+// http://www.apache.org/licenses/LICENSE-2.0
+
+
 #ifndef THEBOARD_H
 #define THEBOARD_H
 
