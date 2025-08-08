@@ -1,3 +1,8 @@
+// Copyright (c) 2025 Matthew Pym
+// Licensed under the Apache License, Version 2.0
+// http://www.apache.org/licenses/LICENSE-2.0
+
+
 #include "GAMEMODEENUM_H.h"		// Include the header file for the GameModeEnum enum
 #include "THEBOARD_H.h"			// Include the header file for the printBoard function
 #include "INPUTFUNCTIONS_H.h"	// Include the header file for the inputVector function
@@ -61,6 +66,59 @@ class FriendStatsClass {
 			}
 		}
 
+
+
+		// Function to check if the game has been won/lost/drawn
+		bool isTheGameOver() {
+			// Check if Player1 has won
+			if (getboardArray(0) == getPlayer1Symbol() && getboardArray(1) == getPlayer1Symbol() && getboardArray(2) == getPlayer1Symbol() ||
+				getboardArray(3) == getPlayer1Symbol() && getboardArray(4) == getPlayer1Symbol() && getboardArray(5) == getPlayer1Symbol() ||
+				getboardArray(6) == getPlayer1Symbol() && getboardArray(7) == getPlayer1Symbol() && getboardArray(8) == getPlayer1Symbol() ||
+
+				getboardArray(0) == getPlayer1Symbol() && getboardArray(3) == getPlayer1Symbol() && getboardArray(6) == getPlayer1Symbol() ||
+				getboardArray(1) == getPlayer1Symbol() && getboardArray(4) == getPlayer1Symbol() && getboardArray(7) == getPlayer1Symbol() ||
+				getboardArray(2) == getPlayer1Symbol() && getboardArray(5) == getPlayer1Symbol() && getboardArray(8) == getPlayer1Symbol() ||
+
+				getboardArray(0) == getPlayer1Symbol() && getboardArray(4) == getPlayer1Symbol() && getboardArray(8) == getPlayer1Symbol() ||
+				getboardArray(2) == getPlayer1Symbol() && getboardArray(4) == getPlayer1Symbol() && getboardArray(6) == getPlayer1Symbol()) {
+
+				cout << "Player 1 Wins!!!" << endl << endl << "Well done Player 1" << endl;
+				SetPlayer1Score(getPlayer1Score() + 1);																// Increment Player 1's score
+				return true;
+			}
+
+			// Check if Player2 has won
+			if (getboardArray(0) == getPlayer2Symbol() && getboardArray(1) == getPlayer2Symbol() && getboardArray(2) == getPlayer2Symbol() ||
+				getboardArray(3) == getPlayer2Symbol() && getboardArray(4) == getPlayer2Symbol() && getboardArray(5) == getPlayer2Symbol() ||
+				getboardArray(6) == getPlayer2Symbol() && getboardArray(7) == getPlayer2Symbol() && getboardArray(8) == getPlayer2Symbol() ||
+
+				getboardArray(0) == getPlayer2Symbol() && getboardArray(3) == getPlayer2Symbol() && getboardArray(6) == getPlayer2Symbol() ||
+				getboardArray(1) == getPlayer2Symbol() && getboardArray(4) == getPlayer2Symbol() && getboardArray(7) == getPlayer2Symbol() ||
+				getboardArray(2) == getPlayer2Symbol() && getboardArray(5) == getPlayer2Symbol() && getboardArray(8) == getPlayer2Symbol() ||
+
+				getboardArray(0) == getPlayer2Symbol() && getboardArray(4) == getPlayer2Symbol() && getboardArray(8) == getPlayer2Symbol() ||
+				getboardArray(2) == getPlayer2Symbol() && getboardArray(4) == getPlayer2Symbol() && getboardArray(6) == getPlayer2Symbol()) {
+
+				cout << "Player 2 Wins!!!" << endl << endl << endl << "Well done Player 2" << endl;
+				SetPlayer2Score(getPlayer2Score() + 1);                                                              // Increment Player 2's score
+				return true;
+			}
+
+			// Check if the game is a draw
+			if (getboardArray(0) != 0 && getboardArray(1) != 0 && getboardArray(2) != 0 &&
+				getboardArray(3) != 0 && getboardArray(4) != 0 && getboardArray(5) != 0 &&
+				getboardArray(6) != 0 && getboardArray(7) != 0 && getboardArray(8) != 0) {			// Check if the board is full
+				cout << "The game is a draw!" << endl;												// If the board is full, print draw message
+				SetDraws(Getdraws() + 1);															// Increment the number of draws	
+				return true;																		// Return true if the game is a draw
+			}
+			else {
+				return false;																		// Return false if the game is not a draw
+			}
+		}
+
+
+
 private:
 		int player1Score = 0;	// Reset Player 1's score
 		int player2Score = 0;	// Reset Player 2's score
@@ -105,7 +163,7 @@ GameModeEnum FriendMode() {
 			}
 		}
 
-		if (responsePlayer1Symbol.find('x') != string::npos || responsePlayer1Symbol.find("knot") != string::npos) {			// If the user input is 1 or friend, `find() != string::npos` checks if the substring exists anywhere in the string; without it, you’d only detect exact matches or need manual searching.
+		if (responsePlayer1Symbol.find('x') != string::npos || responsePlayer1Symbol.find("knot") != string::npos) {			// If the user input is 1 or friend, `find() != string::npos` checks if the substring exists anywhere in the string; without it, youâ€™d only detect exact matches or need manual searching.
 			stats.setPlayer1Symbol(1);																							// Set Player 1's symbol to X
 			cout << "Player 1 chose X so player 2 is O" << endl;
 			cout << endl << endl << endl;
@@ -134,6 +192,7 @@ GameModeEnum FriendMode() {
 	// Print the tutorial board
 	// Print the tutorial board
 	// Print the tutorial board
+	cout << "HOW TO PLAY" << endl << endl;
 	cout << "(1)" << " | " << "(2)" << " | " << "(3)" << endl;
 	cout << "---------------" << endl;
 	cout << "(4)" << " | " << "(5)" << " | " << "(6)" << endl;
@@ -148,14 +207,13 @@ GameModeEnum FriendMode() {
 	// Start the game loop
 	while (true) {
 
-		// Check to see if the game ended in a draw
-		if (stats.getboardArray(0) != 0 && stats.getboardArray(1) != 0 && stats.getboardArray(2) != 0 &&
-			stats.getboardArray(3) != 0 && stats.getboardArray(4) != 0 && stats.getboardArray(5) != 0 &&
-			stats.getboardArray(6) != 0 && stats.getboardArray(7) != 0 && stats.getboardArray(8) != 0) {			// Check if the board is full
-			cout << "The game is a draw!" << endl;																	// If the board is full, print draw message
-			stats.SetDraws(stats.Getdraws() + 1);																	// Increment the number of draws	
+
+
+		// Check to see if the game has ended
+		if (stats.isTheGameOver()) {
 			break;
 		}
+
 
 
 		// Player 1's turn
@@ -163,7 +221,7 @@ GameModeEnum FriendMode() {
 			string responsePlayerMove;
 
 
-			cout << "Player 1's turn" << endl;																						// Print whose turn it is
+			cout << "Player 1's turn" << " (" << stats.getPlayer1Symbol() << ")" << endl;																						// Print whose turn it is
 			cout << "Player 1, please enter the number of the square you want to play in: ";										// Prompt Player 1 for their move
 
 
@@ -180,12 +238,13 @@ GameModeEnum FriendMode() {
 			}
 
 			if (responsePlayerMove.find_first_of("123456789") != string::npos) {
-				for (char ch : responsePlayerMove) {																	// Loop through each character in the response
+				for (char ch : responsePlayerMove) {																// Loop through each character in the response
 					if (isdigit(ch)) {																				// If the character is a digit
 						int word1 = ch - '0';																		// Convert the character to an integer
 						if (stats.getboardArray(word1 - 1) == 0) {													// Check if the square is already occupied
 							stats.setBoardArray(word1 - 1, stats.getPlayer1Symbol());								// Set the square to Player 1's symbol
 							stats.setWhosTurn(2);																	// Switch to Player 2's turn
+							cout << endl << endl;																	// Print a new line for better readability
 							printBoard(stats.getboardArray(0), stats.getboardArray(1), stats.getboardArray(2), stats.getboardArray(3), stats.getboardArray(4), stats.getboardArray(5), stats.getboardArray(6), stats.getboardArray(7), stats.getboardArray(8)); // Print the board
 
 						}
@@ -193,6 +252,7 @@ GameModeEnum FriendMode() {
 							cout << "That square is already occupied. Please choose another square." << endl;		// If the square is already occupied, print error message
 							stats.setWhosTurn(1);																	// Switch back to Player 1's turn
 						}
+						break;
 					}
 				}
 				break;
@@ -208,29 +268,9 @@ GameModeEnum FriendMode() {
 		}
 
 
-		// Check to see if player 1 won after their turn
-		if (stats.getboardArray(0) == stats.getPlayer1Symbol() && stats.getboardArray(1) == stats.getPlayer1Symbol() && stats.getboardArray(2) == stats.getPlayer1Symbol() ||
-			stats.getboardArray(3) == stats.getPlayer1Symbol() && stats.getboardArray(4) == stats.getPlayer1Symbol() && stats.getboardArray(5) == stats.getPlayer1Symbol() ||
-			stats.getboardArray(6) == stats.getPlayer1Symbol() && stats.getboardArray(7) == stats.getPlayer1Symbol() && stats.getboardArray(8) == stats.getPlayer1Symbol() ||
 
-			stats.getboardArray(0) == stats.getPlayer1Symbol() && stats.getboardArray(3) == stats.getPlayer1Symbol() && stats.getboardArray(6) == stats.getPlayer1Symbol() ||
-			stats.getboardArray(1) == stats.getPlayer1Symbol() && stats.getboardArray(4) == stats.getPlayer1Symbol() && stats.getboardArray(7) == stats.getPlayer1Symbol() ||
-			stats.getboardArray(2) == stats.getPlayer1Symbol() && stats.getboardArray(5) == stats.getPlayer1Symbol() && stats.getboardArray(8) == stats.getPlayer1Symbol() ||
-
-			stats.getboardArray(0) == stats.getPlayer1Symbol() && stats.getboardArray(4) == stats.getPlayer1Symbol() && stats.getboardArray(8) == stats.getPlayer1Symbol() ||
-			stats.getboardArray(2) == stats.getPlayer1Symbol() && stats.getboardArray(4) == stats.getPlayer1Symbol() && stats.getboardArray(6) == stats.getPlayer1Symbol()) {
-
-			cout << "Player 1 Wins!!!" << endl << endl << "Well done Player 1" << endl;
-			stats.SetPlayer1Score(stats.getPlayer1Score() + 1);																// Increment Player 1's score
-			break;
-		}
-
-		// Check to see if the game ended in a draw
-		if (stats.getboardArray(0) != 0 && stats.getboardArray(1) != 0 && stats.getboardArray(2) != 0 &&
-			stats.getboardArray(3) != 0 && stats.getboardArray(4) != 0 && stats.getboardArray(5) != 0 &&
-			stats.getboardArray(6) != 0 && stats.getboardArray(7) != 0 && stats.getboardArray(8) != 0) {			// Check if the board is full
-			cout << "The game is a draw!" << endl;																	// If the board is full, print draw message
-			stats.SetDraws(stats.Getdraws() + 1);																	// Increment the number of draws	
+		// Check to see if the game has ended
+		if (stats.isTheGameOver()) {
 			break;
 		}
 
@@ -241,7 +281,7 @@ GameModeEnum FriendMode() {
 			string responsePlayerMove;
 
 
-			cout << "Player 2's turn" << endl;																						// Print whose turn it is
+			cout << "Player 2's turn" << " (" << stats.getPlayer2Symbol() << ")" << endl;																						// Print whose turn it is
 			cout << "Player 2, please enter the number of the square you want to play in: ";										// Prompt Player 2 for their move
 
 
@@ -263,6 +303,7 @@ GameModeEnum FriendMode() {
 						if (stats.getboardArray(word1 - 1) == 0) {													// Check if the square is already occupied
 							stats.setBoardArray(word1 - 1, stats.getPlayer2Symbol());								// Set the square to Player 2's symbol
 							stats.setWhosTurn(1);																	// Switch to Player 1's turn
+							cout << endl << endl;																	// Print a new line for better readability
 							printBoard(stats.getboardArray(0), stats.getboardArray(1), stats.getboardArray(2), stats.getboardArray(3), stats.getboardArray(4), stats.getboardArray(5), stats.getboardArray(6), stats.getboardArray(7), stats.getboardArray(8)); // Print the board
 
 						}
@@ -270,6 +311,7 @@ GameModeEnum FriendMode() {
 							cout << "That square is already occupied. Please choose another square." << endl;		// If the square is already occupied, print error message
 							stats.setWhosTurn(2);																	// Switch back to Player 2's turn
 						}
+						break;
 					}
 				}
 				break;
@@ -286,20 +328,8 @@ GameModeEnum FriendMode() {
 
 
 
-		// // Check to see if player 2 won after their turn
-		if (stats.getboardArray(0) == stats.getPlayer2Symbol() && stats.getboardArray(1) == stats.getPlayer2Symbol() && stats.getboardArray(2) == stats.getPlayer2Symbol() ||
-			stats.getboardArray(3) == stats.getPlayer2Symbol() && stats.getboardArray(4) == stats.getPlayer2Symbol() && stats.getboardArray(5) == stats.getPlayer2Symbol() ||
-			stats.getboardArray(6) == stats.getPlayer2Symbol() && stats.getboardArray(7) == stats.getPlayer2Symbol() && stats.getboardArray(8) == stats.getPlayer2Symbol() ||
-
-			stats.getboardArray(0) == stats.getPlayer2Symbol() && stats.getboardArray(3) == stats.getPlayer2Symbol() && stats.getboardArray(6) == stats.getPlayer2Symbol() ||
-			stats.getboardArray(1) == stats.getPlayer2Symbol() && stats.getboardArray(4) == stats.getPlayer2Symbol() && stats.getboardArray(7) == stats.getPlayer2Symbol() ||
-			stats.getboardArray(2) == stats.getPlayer2Symbol() && stats.getboardArray(5) == stats.getPlayer2Symbol() && stats.getboardArray(8) == stats.getPlayer2Symbol() ||
-
-			stats.getboardArray(0) == stats.getPlayer2Symbol() && stats.getboardArray(4) == stats.getPlayer2Symbol() && stats.getboardArray(8) == stats.getPlayer2Symbol() ||
-			stats.getboardArray(2) == stats.getPlayer2Symbol() && stats.getboardArray(4) == stats.getPlayer2Symbol() && stats.getboardArray(6) == stats.getPlayer2Symbol()) {
-
-			cout << "Player 2 Wins!!!" << endl << endl << endl << "Well done Player 2" << endl;
-			stats.SetPlayer2Score(stats.getPlayer2Score() + 1);                                                              // Increment Player 2's score
+		// Check to see if the game has ended
+		if (stats.isTheGameOver()) {
 			break;
 		}
 
