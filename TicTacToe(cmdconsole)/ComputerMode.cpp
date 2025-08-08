@@ -112,7 +112,7 @@ public:
 			getboardArray(0) == getPlayer2Symbol() && getboardArray(4) == getPlayer2Symbol() && getboardArray(8) == getPlayer2Symbol() ||
 			getboardArray(2) == getPlayer2Symbol() && getboardArray(4) == getPlayer2Symbol() && getboardArray(6) == getPlayer2Symbol()) {
 
-			cout << "Player 2 Wins!!!" << endl << endl << endl << "Well done Player 2" << endl;
+			cout << "The Computer Wins!!!" << endl << endl << endl << "Better luck next time" << endl;
 			SetPlayer2Score(getPlayer2Score() + 1);                                                              // Increment Player 2's score
 			return true;
 		}
