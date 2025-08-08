@@ -1,6 +1,16 @@
-#include "TheBoard_H.h"			// Include the header file for the printBoard function
-#include "MainMenu_H.h"			// Include the header file for the WelcomeMessage function
-#include "InputFunctions_H.h"	// Include the header file for the inputVector function
+// Copyright (c) 2025 Matthew Pym
+// Licensed under the Apache License, Version 2.0
+// http://www.apache.org/licenses/LICENSE-2.0
+
+
+
+
+#include "THEBOARD_H.h"			// Include the header file for the printBoard function
+#include "MAINMENU_H.h"			// Include the header file for the WelcomeMessage function
+#include "INPUTFUNCTIONS_H.h"	// Include the header file for the inputVector function
+#include "FRIENDMODE_H.h"		// Include the header file for the FriendMode function
+#include "COMPUTERMODE_H.h"		// Include the header file for the ComputerMode function
+#include "GAMEMODEENUM_H.h"		// Include the header file for the GameModeEnum enum
 
 #include <iostream>		// For cout, cin, getline
 #include <string> 
@@ -100,11 +110,6 @@ int main() {
 		}
 	}
 	
-
-
-
-
-
 
 
 	return 0;
