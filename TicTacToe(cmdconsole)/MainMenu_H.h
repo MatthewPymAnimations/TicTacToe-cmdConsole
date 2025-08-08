@@ -1,0 +1,18 @@
+#ifndef MAINMENU_H
+#define MAINMENU_H
+
+#include "GAMEMODEENUM_H.h"			// Include the header file for the GameModeEnum enum
+#include "THEBOARD_H.h"				// Include the header file for the printBoard function
+
+#include <iostream>
+
+using namespace std;
+
+
+// Header file created to hold the WelcomeMessage function for the Tic Tac Toe game.
+
+void WelcomeMessage();				// Function prototype for the WelcomeMessage function
+GameModeEnum MainMenuFunction();	// Function prototype for the MainMenuFunction
+
+
+#endif

@@ -123,10 +123,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ComputerMode.cpp" />
+    <ClCompile Include="FriendMode.cpp" />
+    <ClCompile Include="InputFunctions.cpp" />
     <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="TheBoard.cpp" />
     <ClCompile Include="TheBoard_H.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ComputerMode_H.h" />
+    <ClInclude Include="FriendMode_H.h" />
+    <ClInclude Include="GameModeEnum_H.h" />
     <ClInclude Include="InputFunctions_H.h" />
     <ClInclude Include="MainMenu_H.h" />
   </ItemGroup>
