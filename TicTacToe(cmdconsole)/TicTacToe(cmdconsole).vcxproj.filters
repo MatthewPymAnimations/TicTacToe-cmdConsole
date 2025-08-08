@@ -21,12 +21,36 @@
     <ClCompile Include="MainGame.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="FriendMode.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ComputerMode.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InputFunctions.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TheBoard.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainMenu_H.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InputFunctions_H.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FriendMode_H.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameModeEnum_H.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ComputerMode_H.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
