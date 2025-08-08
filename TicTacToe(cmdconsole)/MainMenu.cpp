@@ -1,3 +1,8 @@
+// Copyright (c) 2025 Matthew Pym
+// Licensed under the Apache License, Version 2.0
+// http://www.apache.org/licenses/LICENSE-2.0
+
+
 #include "MAINMENU_H.h"		// Include the header file for the WelcomeMessage function
 #include "THEBOARD_H.h"			// Include the header file for the printBoard function
 #include "GAMEMODEENUM_H.h"		// Include the header file for the GameModeEnum enum
@@ -43,7 +48,7 @@ GameModeEnum MainMenuFunction() {
 			}
 		}
 
-		if (response.find('1') != string::npos || response.find("friend") != string::npos) {				// If the user input is 1 or friend, `find() != string::npos` checks if the substring exists anywhere in the string; without it, you’d only detect exact matches or need manual searching.
+		if (response.find('1') != string::npos || response.find("friend") != string::npos) {				// If the user input is 1 or friend, `find() != string::npos` checks if the substring exists anywhere in the string; without it, youâ€™d only detect exact matches or need manual searching.
 			cout << endl << endl << endl;									// Print message
 			return GameModeEnum::Friend;																	// Exit the loop and proceed to the game logic
 		}
