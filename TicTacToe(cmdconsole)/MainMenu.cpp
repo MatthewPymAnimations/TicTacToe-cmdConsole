@@ -18,6 +18,7 @@
 using namespace std;
 
 void WelcomeMessage() {	// Displays the welcome message, called at the start of the game
+	cout << "Programmed by Matthew Pym" << endl << endl << endl;	// Print the programmer's name
 	printBoard('X', 'O', 0, 0, 'X', 'O', 0, 'X', 'O');
 	cout << "Welcome to Tic Tac Toe!" << endl << endl;
 
