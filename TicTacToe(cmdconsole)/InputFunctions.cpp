@@ -1,3 +1,8 @@
+// Copyright (c) 2025 Matthew Pym
+// Licensed under the Apache License, Version 2.0
+// http://www.apache.org/licenses/LICENSE-2.0
+
+
 #include <iostream>		// For cout, cin, getline
 #include <string> 
 #include <algorithm>	// For transform function
@@ -17,6 +22,4 @@ vector<string> inputVector(string input) {
 	}
 
 	return result;																	// Return the vector of strings
-
 }
-
