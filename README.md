@@ -1,4 +1,5 @@
-# Tic Tac Toe Game
+# Tic Tac Toe Game 
+<img width="452" height="309" alt="{58FC3029-02ED-436F-8982-FDB7E985AB68}" src="https://github.com/user-attachments/assets/d95999a8-dcb3-4e5f-a6a0-bdd61a551254" />
 
 A simple command-line implementation of the classic Tic Tac Toe game, built in C++. Players can choose to play against a friend locally or against the computer.
 
@@ -33,6 +34,11 @@ If you're interested in the source code or want to build the application yoursel
 1. Clone this repository:
 2. Compile the source files using your preferred C++ compiler
 
+## Whats Next?
+
+- I created this as a way to practice c++ and to get the ball rolling in terms of creating a little portfolio of projects.
+- At present, there are no plans to continue developing this project.
+  
 ## License
 
 This project is licensed under the Apache License, Version 2.0. See the [LICENSE](https://github.com/MatthewPymAnimations/TicTacToe-cmdconsole-/blob/master/TicTacToe(cmdconsole)/LICENSE.txt) file for details.
