@@ -13,7 +13,7 @@ A simple command-line implementation of the classic Tic Tac Toe game, built in C
 
 ### Quick Start (Recommended)
 
-1. Go to the [Releases] page
+1. Go to the [Releases](https://github.com/MatthewPymAnimations/TicTacToe-cmdconsole-/releases) page
 2. Download the latest `TicTacToe.zip` file
 3. Extract the zip file to any location on your computer
 4. Double-click on `TicTacToe.exe` to start the game!
