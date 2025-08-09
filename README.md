@@ -6,7 +6,7 @@ A simple command-line implementation of the classic Tic Tac Toe game, built in C
 
 - Play against a friend (local multiplayer)
 - Play against the computer
-- Clean, intuitive command-line interface
+- Command-line interface
 - Input validation for user moves
 
 ## How to Run
