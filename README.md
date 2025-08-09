@@ -39,4 +39,4 @@ This project is licensed under the Apache License, Version 2.0. See the [LICENSE
 
 ## Author
 
-**Matthew Pym** - [https://github.com/Starfriend16](https://github.com/Starfriend16/TicTacToe-cmdconsole-)
+**Matthew Pym** - (https://github.com/MatthewPymAnimations)(https://github.com/MatthewPymAnimations/TicTacToe-cmdconsole-)
